@@ -40,4 +40,4 @@ def get_time_difference(
 
     timedelta_value = end_datetime - start_datetime
 
-    return {"over_time": f"{timedelta_value.seconds / 3600}h"}
+    return {"overTime": f"{timedelta_value.seconds / 3600}h"}
