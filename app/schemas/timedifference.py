@@ -1,6 +1,7 @@
 import enum
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
+from pydantic.alias_generators import to_camel
 
 
 class TimeDifferenceHour(enum.Enum):
@@ -39,6 +40,8 @@ class TimeDifferenceMinute(enum.Enum):
 
 
 class GetTimeDifferenceRequest(BaseModel):
+    model_config = ConfigDict(alias_generator=to_camel)
+
     start_hour: TimeDifferenceHour = Field(..., description="残業開始時間")
     start_minute: TimeDifferenceMinute = Field(..., description="残業開始分")
     end_hour: TimeDifferenceHour = Field(..., description="残業終了時間")
@@ -46,4 +49,6 @@ class GetTimeDifferenceRequest(BaseModel):
 
 
 class GetTimeDifferenceResponse(BaseModel):
+    model_config = ConfigDict(alias_generator=to_camel)
+
     over_time: str = Field(..., description="残業時間(10進法表記)")
