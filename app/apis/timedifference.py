@@ -2,15 +2,15 @@ from datetime import date, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
 
-from app.schemas import overtime
+from app.schemas import timedifference
 
 router = APIRouter()
 
 
 @router.get("/")
-def get_over_time(
-    req: overtime.GetOverTimeRequest = Depends(),
-) -> overtime.GetOverTimeResponse:
+def get_time_difference(
+    req: timedifference.GetTimeDifferenceRequest = Depends(),
+) -> timedifference.GetTimeDifferenceResponse:
     # datetime.timeオブジェクトでは日付の差分が計算できないのでdatetime.datetimeを使用する
     now_date = date.today()
     date_value = [now_date.year, now_date.month, now_date.day]

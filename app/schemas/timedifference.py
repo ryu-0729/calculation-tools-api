@@ -3,7 +3,7 @@ import enum
 from pydantic import BaseModel, Field
 
 
-class OverTimeHour(enum.Enum):
+class TimeDifferenceHour(enum.Enum):
     ZERO = "0"
     ONE = "1"
     TWO = "2"
@@ -31,19 +31,19 @@ class OverTimeHour(enum.Enum):
     TWENTY_FOUR = "24"
 
 
-class OverTimeMinute(enum.Enum):
+class TimeDifferenceMinute(enum.Enum):
     ZERO = "0"
     FIFTEEN = "15"
     THIRTY = "30"
     FORTY_FIVE = "45"
 
 
-class GetOverTimeRequest(BaseModel):
-    start_hour: OverTimeHour = Field(..., description="残業開始時間")
-    start_minute: OverTimeMinute = Field(..., description="残業開始分")
-    end_hour: OverTimeHour = Field(..., description="残業終了時間")
-    end_minute: OverTimeMinute = Field(..., description="残業終了分")
+class GetTimeDifferenceRequest(BaseModel):
+    start_hour: TimeDifferenceHour = Field(..., description="残業開始時間")
+    start_minute: TimeDifferenceMinute = Field(..., description="残業開始分")
+    end_hour: TimeDifferenceHour = Field(..., description="残業終了時間")
+    end_minute: TimeDifferenceMinute = Field(..., description="残業終了分")
 
 
-class GetOverTimeResponse(BaseModel):
+class GetTimeDifferenceResponse(BaseModel):
     over_time: str = Field(..., description="残業時間(10進法表記)")
