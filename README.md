@@ -2,7 +2,7 @@
 https://calculation-tools.vercel.app/  
 ↑のAPIになります。
 
-# 環境構築
+# Dockerでの動作確認
 ### step1: プロジェクトのクローン
 `git clone https://github.com/ryu-0729/calculation-tools-api.git`
 ### step2: Dockerイメージのビルド
