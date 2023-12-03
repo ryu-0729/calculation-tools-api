@@ -5,5 +5,8 @@
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
-  }
+  },
+  "python.defaultInterpreterPath": "venv/bin/python",
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "venv/bin/mypy"
 }

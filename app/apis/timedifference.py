@@ -1,3 +1,4 @@
+from collections import namedtuple
 from datetime import date, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -13,7 +14,8 @@ def get_time_difference(
 ) -> timedifference.GetTimeDifferenceResponse:
     # datetime.timeオブジェクトでは日付の差分が計算できないのでdatetime.datetimeを使用する
     now_date = date.today()
-    date_value = [now_date.year, now_date.month, now_date.day]
+    DateValue = namedtuple("DateValue", "year, month, day")
+    date_value = DateValue(now_date.year, now_date.month, now_date.day)
 
     start_datetime = datetime(
         *date_value,
@@ -39,5 +41,8 @@ def get_time_difference(
         )
 
     timedelta_value = end_datetime - start_datetime
+    res = timedifference.GetTimeDifferenceResponse(
+        overTime=f"{timedelta_value.seconds / 3600}h"
+    )
 
-    return {"overTime": f"{timedelta_value.seconds / 3600}h"}
+    return res

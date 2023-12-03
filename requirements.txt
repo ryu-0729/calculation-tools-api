@@ -8,6 +8,7 @@ h11==0.14.0
 idna==3.4
 isort==5.12.0
 mccabe==0.7.0
+mypy==1.7.1
 mypy-extensions==1.0.0
 packaging==23.2
 pathspec==0.11.2
